@@ -87,7 +87,7 @@ def echo(bot, update):
     elif stt == 1:
         if update.message.text.lower().strip() == 'готов':
             zupdate(chat_id, status=2)
-            update.message.reply_text('Отправьте скриншот своего рабочего стола на телефоне. У вас 3 минуты.', reply_markup=ReplyKeyboardRemove())
+            update.message.reply_text('Отправьте скриншот своего рабочего стола на телефоне (в виде фотографии, а не документа). У вас есть 3 минуты.', reply_markup=ReplyKeyboardRemove())
             updater.job_queue.run_repeating(reminder, interval=60, first=60, context=update.message.chat_id)
             updater.job_queue.run_once(timeup, 60*3, context=update.message.chat_id)
             return
